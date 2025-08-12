@@ -1,0 +1,13 @@
+<div class="mb-3">
+    <label for="" class="form-label">Products</label>
+    <select class="form-select form-select-lg" [(ngModel)]="selectedCategoryID" >
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+    </select>
+</div>
+
+<div class="bg-primary">
+    <app-products [receviedSelectedCategoryId]="selectedCategoryID" (onTotalOrderPriceChanges)="viewTotalPrice($event)"></app-products>
+</div>
+
+
+<h1>Total Order Price : {{totalOrderPrice}}</h1>

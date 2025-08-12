@@ -1,0 +1,92 @@
+<!-- <div class="mb-3">
+    <label for="" class="form-label">Products</label>
+    <select class="form-select form-select-lg" [(ngModel)]="selectedCategoryID" (change)="chageSelectedCatID()" >
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+    </select>
+</div> -->
+
+<!-- <h1>{{selectedCategoryID}}</h1> -->
+
+<!-- <h1>Total Price: {{totalPrice}}</h1> -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4 my-5">
+    <!-- <div class="col" *ngFor="let product of products" [hidden]="product.productCategory != selectedCategoryID " > -->
+    <!-- <div class="col" *ngFor="let product of products" [style.display]=" product.productCategory != selectedCategoryID ? 'none' : 'block' "> -->
+
+    <!-- <ng-container *ngFor="let product of products ;  index as i , first as f , last as l , count as c"> -->
+    <!-- <ng-container *ngFor="let product of products trackBy: trackingFunction  ; index as i">
+    </ng-container> -->
+
+    @for (product of filteredProducts; track product.id ; let i = $index ) {
+    <!-- <div class="col" *ngIf=" product.productCategory == selectedCategoryID "> -->
+    <div class="col">
+        <!-- <div class="card" [class.bg-danger]="product.quantity == 0"> -->
+        <div class="card">
+            <img  BorderImage="brown" defaultColor="blue" [src]="product.productImage" class="card-img-top" style="height: 200px; object-fit: cover; ">
+            <!-- <div class="card-body" [ngStyle]="{'background-color' : product.quantity == 2 ? 'tomato' : 'info' , 'font-size': product.quantity==2 ? '20px' : '16'}" > -->
+            <!-- <div class="card-body"  [ngClass]="{'text-warning' : product.quantity==2 , 'bg-primary': product.quantity == 2}"> -->
+            <div class="card-body" >
+                <!-- <h5 class="card-title">{{i+1}} {{f}} {{l}} {{c}} {{product.name}}</h5> -->
+                <h5 class="card-title">{{i+1}} {{product.name | dashPipe: '/'}}</h5>
+                <p class="card-text">Product Price {{product.price | currency:'EUR':'code'}}</p>
+
+                <!-- <p class="card-text">Product Quantity 
+                        <span *ngIf="product.quantity == 0 ; else elseBlock ">Out Of Stock</span>
+                        <ng-template #elseBlock> {{product.quantity}} </ng-template>
+                        </p> 
+                    -->
+
+                <!-- <p class="card-text" [ngSwitch]="product.quantity">Product Quantity 
+                        <span *ngSwitchCase="0">Out Of Stock</span>
+                        <span *ngSwitchCase="1">Last One Item</span>
+                        <span *ngSwitchCase="2">Last Two Item</span>
+                        <span *ngSwitchDefault> {{product.quantity}} </span>
+                     </p> -->
+
+                <!-- <p class="card-text">Product Quantity
+                        @if (product.quantity == 0) {
+                        <span>Out Of Stock</span>
+                        }@else if (product.quantity == 1) {
+                        <span>Last One Item</span>
+                        }@else if (product.quantity == 2) {
+                        <span>Last Two Item</span>
+                        }@else{
+                        <span>{{product.quantity}}</span>
+                        }
+                    </p> -->
+
+                <p class="card-text">Product Quantity
+                    @switch (product.quantity) {
+                    @case (0) {
+                    <span>Out Of Stock</span>
+                    }
+                    @case (1) {
+                    <span>Last One Item</span>
+                    }
+                    @case (2) {
+                    <span>Last Two Item</span>
+                    }
+                    @default {
+                    <span>{{product.quantity}}</span>
+                    }
+                    }
+                </p>
+
+
+                <p class="card-text">CategoryID {{product.productCategory}}</p>
+                <div class="d-flex">
+                    <input type="number" #inp>
+                    <button class="btn btn-primary" (click)="buy(product.price , inp.value)">Buy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+    @empty {
+        <h1>There Is Not Products</h1>
+    }
+
+
+</div>
+
+<h1>Date Now {{dateNow | date: 'fullDate'}}</h1>
