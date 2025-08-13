@@ -5,9 +5,11 @@
     </select>
 </div>
 
-<div class="bg-primary">
+<div class="">
     <app-products [receviedSelectedCategoryId]="selectedCategoryID" (onTotalOrderPriceChanges)="viewTotalPrice($event)"></app-products>
 </div>
 
 
-<h1>Total Order Price : {{totalOrderPrice}}</h1>
+<!-- <h1>Total Order Price : {{totalOrderPrice}}</h1> -->
+
+<input type="text" value="Default Value"  #inp>

@@ -22,7 +22,7 @@
     <div class="col">
         <!-- <div class="card" [class.bg-danger]="product.quantity == 0"> -->
         <div class="card">
-            <img  BorderImage="brown" defaultColor="blue" [src]="product.productImage" class="card-img-top" style="height: 200px; object-fit: cover; ">
+            <img   [src]="product.productImage" class="card-img-top" style="height: 200px; object-fit: cover; ">
             <!-- <div class="card-body" [ngStyle]="{'background-color' : product.quantity == 2 ? 'tomato' : 'info' , 'font-size': product.quantity==2 ? '20px' : '16'}" > -->
             <!-- <div class="card-body"  [ngClass]="{'text-warning' : product.quantity==2 , 'bg-primary': product.quantity == 2}"> -->
             <div class="card-body" >
@@ -74,10 +74,12 @@
 
 
                 <p class="card-text">CategoryID {{product.productCategory}}</p>
-                <div class="d-flex">
+                <!-- <div class="d-flex">
                     <input type="number" #inp>
                     <button class="btn btn-primary" (click)="buy(product.price , inp.value)">Buy</button>
-                </div>
+                </div> -->
+                <button class="btn btn-success" (click)="goToDetails(product.id)">Show Details</button>
+                <button class="btn btn-success" [routerLink]="['/productDetails' , product.id]">Show Details</button>
             </div>
         </div>
     </div>
@@ -89,4 +91,4 @@
 
 </div>
 
-<h1>Date Now {{dateNow | date: 'fullDate'}}</h1>
+<!-- <h1>Date Now {{dateNow | date: 'fullDate'}}</h1> -->

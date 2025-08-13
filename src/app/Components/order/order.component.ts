@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ICategory } from '../../Modles/icategory';
 import { ProductsComponent } from '../products/products.component';
@@ -16,6 +16,8 @@ export class OrderComponent {
   selectedCategoryID: number = 1;
   categories: ICategory[];
   totalOrderPrice:number = 0;
+  @ViewChild(ProductsComponent) pc!:ProductsComponent
+  @ViewChild('inp') input!:ElementRef
 
   constructor() {
     this.categories = [
@@ -28,6 +30,11 @@ export class OrderComponent {
 
   viewTotalPrice(tOPrice:number){
     this.totalOrderPrice = tOPrice;
+  }
+
+  ngAfterViewInit(){
+    console.log(this.pc)
+    console.log(this.input.nativeElement.value)
   }
 
 }
