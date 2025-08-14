@@ -1,0 +1,10 @@
+@for (post of posts; track $index) {
+<div class="card text-start">
+    <div class="card-body">
+        <h4 class="card-title">Title: {{post.title}}</h4>
+        <p class="card-text">Id: {{post.id}}</p>
+        <p class="card-text">UserId: {{post.userId}}</p>
+        <p class="card-text">Status: {{post.body}}</p>
+    </div>
+</div>
+}

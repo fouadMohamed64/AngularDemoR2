@@ -34,4 +34,8 @@ export class ProductsService {
     return this.products.filter((ele) => ele.productCategory == categoryId);
   }
 
+  productsIDS(){
+    return this.products.map((ele) => ele.id);
+  }
+
 }

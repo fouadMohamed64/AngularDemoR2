@@ -1,1 +1,18 @@
-<p>product-details works!</p>
+<!-- 
+<h1>{{product | json}}</h1> -->
+
+<div class="card text-start d-flex align-items-center">
+    <img class="card-img-top" style="width: 200px;" [src]="product?.productImage" [alt]="product?.name" />
+    <div class="card-body">
+        <h4 class="card-title">{{product?.name}}</h4>
+        <p class="card-text">Price: {{product?.price}}</p>
+        <p class="card-text">Quantity: {{product?.quantity}}</p>
+        <p class="card-text">Category ID: {{product?.productCategory}}</p>
+    </div>
+    <button class="btn btn-warning" (click)="goBack()">Back</button>
+
+    <div class="d-flex">
+        <button class="btn btn-primary" [disabled]="productId == IDS[0]" (click)="goPrev()">Prev</button>
+        <button class="btn btn-success" [disabled]="productId == IDS[IDS.length-1] " (click)="goNext()">Next</button>
+    </div>
+</div>

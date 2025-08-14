@@ -1,0 +1,10 @@
+@for (todo of todos; track $index) {
+<div class="card text-start">
+    <div class="card-body">
+        <h4 class="card-title">Title: {{todo.title}}</h4>
+        <p class="card-text">Id: {{todo.id}}</p>
+        <p class="card-text">UserId: {{todo.userId}}</p>
+        <p class="card-text">Status: {{todo.completed}}</p>
+    </div>
+</div>
+}

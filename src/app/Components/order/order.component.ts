@@ -33,8 +33,8 @@ export class OrderComponent {
   }
 
   ngAfterViewInit(){
-    console.log(this.pc)
-    console.log(this.input.nativeElement.value)
+    // console.log(this.pc)
+    // console.log(this.input.nativeElement.value)
   }
 
 }

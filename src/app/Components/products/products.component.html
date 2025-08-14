@@ -78,7 +78,7 @@
                     <input type="number" #inp>
                     <button class="btn btn-primary" (click)="buy(product.price , inp.value)">Buy</button>
                 </div> -->
-                <button class="btn btn-success" (click)="goToDetails(product.id)">Show Details</button>
+                <!-- <button class="btn btn-success" (click)="goToDetails(product.id)">Show Details</button> -->
                 <button class="btn btn-success" [routerLink]="['/productDetails' , product.id]">Show Details</button>
             </div>
         </div>
